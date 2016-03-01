@@ -1,0 +1,1 @@
+LD_PRELOAD=./my-strace.so "$@"
