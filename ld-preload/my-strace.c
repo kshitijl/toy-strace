@@ -13,6 +13,9 @@ int open(const char *pathname, int flags) {
 }
 
 /*
-  Only do the dlsym lookup once, using a static variable to hold the function pointer.
-  Override fopen as well (to catch calls to the C library).
+  1. Only do the dlsym lookup once, using a static variable to hold the function pointer.
+  2. Override fopen as well (to catch calls to the C library).
+  3. C++ name mangling gets in the way, so either write a .c file or do extern "C"
+  4. Use nm to inspect all the symbols in a binary.
+  5. Use LD_DEBUG=all to print out debug info about which symbol was looked up where.
  */
