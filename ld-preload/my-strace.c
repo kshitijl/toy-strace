@@ -11,3 +11,8 @@ int open(const char *pathname, int flags) {
     printf("= %d\n", answer);
     return answer;
 }
+
+/*
+  Only do the dlsym lookup once, using a static variable to hold the function pointer.
+  Override fopen as well (to catch calls to the C library).
+ */
