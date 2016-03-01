@@ -56,3 +56,14 @@ int main(int argc, char **argv) {
     }
     return 0;
 }
+
+/*
+  1. Print out arguments to syscalls: do PTRACE_GETUSER to read words
+  of memory sequentially from tracee's address-space
+
+  2. Attach to a running process like strace -p
+
+  3. Understand why we need ORIG_RAX and RAX on 64-bit machines. Ans:
+  it's an offset into user_regs_struct. syscall number goes in RAX,
+  return value goe in RAX.
+ */
